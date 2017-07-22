@@ -43,6 +43,7 @@ class Insurance < ApplicationRecord
     base_date = [vehicle_current_date, Date.today].max
     self.start_on = base_date
     save
+    SoatEmailJob.perform_later(id)
   end
 
   def coverage_period

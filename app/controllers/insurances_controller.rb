@@ -8,11 +8,6 @@ class InsurancesController < ApplicationController
   # GET /insurances/1
   # GET /insurances/1.json
   def show
-    if params[:reset]
-      session[:user_id] = nil
-      session[:vehicle_id] = nil
-      redirect_to root_path
-    end
     respond_to do |format|
       format.html
       format.pdf do
@@ -26,7 +21,7 @@ class InsurancesController < ApplicationController
     @insurance = Insurance.new
     @insurance.vehicle_id = session[:vehicle_id]
     @insurance.payment_transaction = Transaction.new
-    @insurance.payment_transaction.user = User.find_by(id: session[:user_id])
+    @insurance.payment_transaction.user_id = session[:user_id]
   end
 
   # POST /insurances
@@ -36,14 +31,18 @@ class InsurancesController < ApplicationController
 
     respond_to do |format|
       if @insurance.save
+        session[:insurance_id] = @insurance.id
         format.html { redirect_to @insurance }
         format.json { render :show, status: :created, location: @insurance }
       else
         @insurance.payment_transaction = Transaction.new
         @insurance.vehicle_id = session[:vehicle_id]
-        @insurance.payment_transaction.user = User.find_by(id: session[:user_id])
+        @insurance.payment_transaction.user_id = session[:user_id]
+
         format.html { render :new }
-        format.json { render json: @insurance.errors, status: :unprocessable_entity }
+        format.json do
+          render json: @insurance.errors, status: :unprocessable_entity
+        end
       end
     end
   end

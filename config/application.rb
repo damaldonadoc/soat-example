@@ -16,5 +16,8 @@ module Soat
     # -- all .rb files in that directory are automatically loaded.
 
     config.i18n.default_locale = :es
+
+    # Active Job adapter
+    config.active_job.queue_adapter = :sucker_punch
   end
 end

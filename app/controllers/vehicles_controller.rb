@@ -17,8 +17,6 @@ class VehiclesController < ApplicationController
   def new
     @vehicle = Vehicle.new
     @vehicle_classes = VehicleClass.all
-    session[:vehicle_id] = nil
-    session[:user_id] = nil
   end
 
   # POST /vehicles
