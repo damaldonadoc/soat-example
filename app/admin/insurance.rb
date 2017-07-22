@@ -4,7 +4,7 @@ ActiveAdmin.register Insurance do
 
   scope :all, default: true
   scope('Vendidas') { |resource| resource.where('start_on IS NOT NULL') }
-  scope('Pendiente pago') { |resource| resource.where('start_on IS NOT NULL') }
+  scope('Pendiente pago') { |resource| resource.where('start_on IS NULL') }
 
   index do
     id_column
