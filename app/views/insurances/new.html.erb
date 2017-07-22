@@ -1,0 +1,21 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><strong>Datos de la compra</strong></div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<td><strong>Placa del vehículo:</strong></td>
+	<td><%= @insurance.vehicle.registration_number %></td>
+      </tr>
+
+      <tr>
+	<td><strong>Valor a pagar:</strong></td>
+	<td>$<%= number_with_delimiter(@insurance.total_value, delimiter: ".") %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+
+<h3>Ingrese informaciones de pago</h3>
+
+<%= render 'form', insurance: @insurance %>

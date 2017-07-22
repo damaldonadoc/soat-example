@@ -1,0 +1,14 @@
+<% environment.context_class.instance_eval { include Rails.application.routes.url_helpers } %>
+
+function vehicleClassSelected() {
+  vehicleClassId = $('#vehicle_vehicle_class').val();
+  $.ajax({
+    url: '<%= sub_types_path %>',
+    type: 'GET',
+    data: { vehicle_class_id: vehicleClassId }
+  });
+}
+
+$('document').ready(function() {
+  $('#vehicle_vehicle_class').change(vehicleClassSelected);
+});

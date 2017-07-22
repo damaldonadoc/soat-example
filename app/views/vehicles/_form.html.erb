@@ -1,0 +1,28 @@
+<%= simple_form_for(@vehicle) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :registration_number, maxlength: 6 %>
+
+    <%= f.input :vehicle_class do %>
+      <%= f.collection_select :vehicle_class, @vehicle_classes, :id, :name,
+	{ include_blank: true }, { class: 'form-control select' } %>
+    <% end %>
+
+    <%= f.input :sub_type do %>
+      <%= f.collection_select :sub_type, [], :id, :name,
+      { include_blank: true }, { class: 'form-control select' } %>
+    <% end %>
+
+    <%= f.input :release_year do %>
+      <%= select_year(Date.today, { start_year: 1901, end_year: Date.current.year },
+		      {class: 'form-control select', name: 'vehicle[release_year]'}) %>
+    <% end %>
+  </div>
+
+  <center>
+    <div class="form-actions">
+      <%= f.button :submit, 'Siguiente', class: 'btn btn-success' %>
+    </div>
+  </center>
+<% end %>

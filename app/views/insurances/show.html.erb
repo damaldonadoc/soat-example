@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h3>La compra de su seguro SOAT se ha realizado con éxito!</h3>
+
+<div class="panel panel-primary">
+  <div class="panel-heading"><strong>Datos de la compra</strong></div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<td><strong>Placa del vehículo:</strong></td>
+	<td><%= @insurance.vehicle.registration_number %></td>
+      </tr>
+
+      <tr>
+	<td><strong>Vehículo asegurado hasta:</strong></td>
+	<td><%= @insurance.vehicle.soat_expires_on.strftime('%d/%m/%Y') %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<center>
+  <div class="form-actions">
+    <%= link_to 'Finalizar', root_path(reset: true), class: 'btn btn-success' %>
+  </div>
+</center>

@@ -1,0 +1,39 @@
+es:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "La validación falló: %{errors}"
+        required: "Campo obligatorio"
+        blank: "Campo obligatorio"
+        invalid: "Formato invalido"
+        taken: "Ya fue registrado"
+        restrict_dependent_destroy:
+          has_one: "No se puede eliminar el registro porque existe un %{record} dependiente"
+          has_many: "No se puede eliminar el registro porque existen %{record} dependientes"
+    attributes:
+      vehicle:
+        registration_number: "Placa"
+        vehicle_class: "Clase"
+        sub_type: "Subtipo"
+        release_year: "Modelo"
+      user:
+        document_type: "Tipo de documento"
+        document_number: "Número de documento"
+        name: "Nombres"
+        lastname: "Apellidos"
+        email: "Correo electrónico"
+        phone: "Telefono"
+      transaction:
+        card_name: "Nombre del titular de la tarjeta"
+        card_number: "Número de tarjeta de crédito"
+        card_expire_on: "Fecha de vencimiento de la tarjeta"
+        cvv: "Código de seguridad de la tarjeta (CVV)"
+        parcels: "Número de cuotas"
+  simple_form:
+    "yes": 'Si'
+    "no": 'No'
+    required:
+      text: 'obligatorio'
+      mark: '*'
+    error_notification:
+      default_message: "Por favor ingrese correctamente los datos"

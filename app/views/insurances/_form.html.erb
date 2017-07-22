@@ -1,0 +1,21 @@
+<%= simple_form_for(@insurance) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.simple_fields_for :payment_transaction do |t| %>
+      <%= t.input :card_name %>
+      <%= t.input :card_number, maxlength: 16 %>
+      <%= t.input :card_expire_on, as: :date, start_year: Date.today.year,
+                  end_year: Date.today.year + 10, discard_day: true,
+                  order: [:month, :year], use_month_numbers: true %>
+      <%= t.input :card_cvv, maxlength: 4 %>
+      <%= t.input :parcels, as: :select, collection: 1..12 %>
+    <% end %>
+  </div>
+
+  <center>
+    <div class="form-actions">
+      <%= f.button :submit, 'Comprar', class: 'btn btn-success' %>
+    </div>
+  </center>
+<% end %>

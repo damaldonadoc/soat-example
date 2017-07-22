@@ -9,6 +9,23 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container master-container">
+      <div class='alert alert-info fade in' data-alert='alert'>
+	<h2>
+          <strong>
+	    <center>Comprar SOAT</center>
+          </strong>
+	</h2>
+      </div>
+
+      <% if notice %>
+	<div class="alert alert-success fade in" data-alert="alert">
+          <a class="close" data-dismiss='alert' href="#">×</a>
+          <p><%= notice %></p>
+	</div>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>

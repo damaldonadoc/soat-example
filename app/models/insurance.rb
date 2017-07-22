@@ -1,5 +1,10 @@
 class Insurance < ApplicationRecord
   belongs_to :vehicle
+  has_one :payment_transaction, class_name: "Transaction"
+
+  accepts_nested_attributes_for :payment_transaction
+
+  before_save :set_transaction_value
 
   def base_value
     rate_params = {}
@@ -31,5 +36,22 @@ class Insurance < ApplicationRecord
 
   def total_value
     (subtotal_value + runt_tax).to_i
+  end
+
+  def activate!
+    vehicle_current_date = vehicle.soat_expires_on || Date.today
+    base_date = [vehicle_current_date, Date.today].max
+    self.start_on = base_date
+    save
+  end
+
+  def coverage_period
+    1.year
+  end
+
+  private
+
+  def set_transaction_value
+    payment_transaction.value = total_value
   end
 end

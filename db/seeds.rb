@@ -102,3 +102,6 @@ Rate.create(code: 732, value: 17.49,  classification_id: c21.id, age_range_id: a
 Rate.create(code: 810, value: 21.81,  classification_id: c22.id, age_range_id: ar3.id)
 Rate.create(code: 910, value: 22.01,  classification_id: c23.id, age_range_id: ar3.id)
 Rate.create(code: 920, value: 31.96,  classification_id: c24.id, age_range_id: ar3.id)
+
+DocumentType.create(name: 'Cédula de ciudadanía', format: '^\d{5,10}$')
+DocumentType.create(name: 'Cédula de extrangería', format: '^\d{5,7}$')

@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20170721015756) do
   enable_extension "plpgsql"
 
   create_table "age_ranges", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "min"
     t.integer "max"
     t.datetime "created_at", null: false
@@ -33,8 +33,8 @@ ActiveRecord::Schema.define(version: 20170721015756) do
   end
 
   create_table "document_types", force: :cascade do |t|
-    t.string "name"
-    t.string "format"
+    t.string "name", null: false
+    t.string "format", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,10 +48,10 @@ ActiveRecord::Schema.define(version: 20170721015756) do
   end
 
   create_table "rates", force: :cascade do |t|
-    t.integer "code"
+    t.integer "code", null: false
     t.bigint "classification_id"
     t.bigint "age_range_id"
-    t.float "value"
+    t.float "value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["age_range_id"], name: "index_rates_on_age_range_id"
@@ -59,23 +59,23 @@ ActiveRecord::Schema.define(version: 20170721015756) do
   end
 
   create_table "sub_types", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "system_params", force: :cascade do |t|
-    t.string "key"
-    t.string "value_type"
-    t.string "value"
-    t.string "version"
-    t.string "state"
+    t.string "key", null: false
+    t.string "value_type", null: false
+    t.string "value", null: false
+    t.string "version", null: false
+    t.string "state", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.float "value"
+    t.float "value", null: false
     t.datetime "capture_at"
     t.bigint "user_id"
     t.bigint "insurance_id"
@@ -87,27 +87,27 @@ ActiveRecord::Schema.define(version: 20170721015756) do
 
   create_table "users", force: :cascade do |t|
     t.bigint "document_type_id"
-    t.string "document_number"
-    t.string "name"
-    t.string "lastname"
-    t.string "email"
-    t.string "phone"
+    t.string "document_number", null: false
+    t.string "name", null: false
+    t.string "lastname", null: false
+    t.string "email", null: false
+    t.string "phone", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["document_type_id"], name: "index_users_on_document_type_id"
   end
 
   create_table "vehicle_classes", force: :cascade do |t|
-    t.string "name"
-    t.boolean "has_age"
+    t.string "name", null: false
+    t.boolean "has_age", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "vehicles", force: :cascade do |t|
-    t.string "registration_number"
+    t.string "registration_number", null: false
     t.bigint "classification_id"
-    t.integer "release_year"
+    t.integer "release_year", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["classification_id"], name: "index_vehicles_on_classification_id"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20170721015756) do
   add_foreign_key "insurances", "vehicles"
   add_foreign_key "rates", "age_ranges"
   add_foreign_key "rates", "classifications"
+  add_foreign_key "transactions", "insurances"
   add_foreign_key "transactions", "users"
   add_foreign_key "users", "document_types"
   add_foreign_key "vehicles", "classifications"

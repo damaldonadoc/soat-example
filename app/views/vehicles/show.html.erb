@@ -1,0 +1,80 @@
+<h3>Resumen de compra</h3>
+<br>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Datos del vehículo</strong></div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<td><strong>Registration number:</strong></td>
+	<td><%= @vehicle.registration_number %></td>
+      </tr>
+
+      <tr>
+	<td><strong>Vehicle class:</strong></td>
+	<td><%= @vehicle.vehicle_class.name %></td>
+      </tr>
+
+      <tr>
+	<td><strong>Sub type:</strong></td>
+	<td><%= @vehicle.sub_type.name %></td>
+      </tr>
+
+      <tr>
+	<td><strong>Release year:</strong></td>
+	<td><%= @vehicle.release_year %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-info">
+  <div class="panel-heading"><strong>Detalle Tarifa</strong></div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<td><strong>Prima</strong></td>
+	<td>$<%= number_with_delimiter(@insurance.base_value, delimiter: ".") %></td>
+      </tr>
+      <tr>
+	<td><strong>Contribución Fosyga</strong></td>
+	<td>$<%= number_with_delimiter(@insurance.fosyga_tax, delimiter: ".") %></td>
+      </tr>
+      <tr>
+	<td><strong>RUNT</strong></td>
+	<td>$<%= number_with_delimiter(@insurance.runt_tax, delimiter: ".") %></td>
+      </tr>
+      <tr class="info">
+	<td><strong>TOTAL A PAGAR</strong></td>
+	<td><strong>$<%= number_with_delimiter(@insurance.total_value, delimiter: ".") %></strong></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="panel panel-success">
+  <div class="panel-heading"><strong>Coberturas</strong/></div>
+  <table class="table table-striped">
+    <tbody>
+      <tr>
+	<td><strong>Muerte y gastos funerarios</strong></td>
+	<td>750 SMLDV</td>
+      </tr>
+      <tr>
+	<td><strong>Gastos médicos</strong></td>
+	<td>800 SMLDV</td>
+      </tr>
+      <tr>
+	<td><strong>Incapacidad permanente</strong></td>
+	<td>180 SMLDV</td>
+      </tr>
+      <tr>
+	<td><strong>Gastos de transporte</strong></td>
+	<td>10 SMLDV</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<center>
+  <%= link_to 'Comprar', new_user_path, class: 'btn btn-success' %>
+</center>
