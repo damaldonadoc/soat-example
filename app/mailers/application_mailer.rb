@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'damaldonadoc@protonmail.com'
+  default from: 'projectizr@protonmail.com'
   layout 'mailer'
 
   def soat(insurance_id)
