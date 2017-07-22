@@ -32,10 +32,6 @@ Configurar variables de entorno, editar archivo 'config/application.yml' de
 acuedo con el siguiente ejemplo:
 ```
 development:
-  SMTP_SERVER: smtp.email.com
-  SMTP_LOGIN: su.email@email.com
-  SMTP_PASSWORD: password
-  SMTPMAILGUN_PORT: 25
   ADMIN_USER: admin_user
   ADMIN_PASSWORD: admin_password
 ```
