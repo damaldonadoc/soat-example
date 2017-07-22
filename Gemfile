@@ -42,6 +42,10 @@ gem 'bootstrap-sass'
 # html form generator
 gem 'simple_form'
 
+# pdf generator
+gem 'wicked_pdf'
+# binary to be OS independent
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

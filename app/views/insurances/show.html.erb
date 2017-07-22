@@ -21,6 +21,7 @@
 
 <center>
   <div class="form-actions">
-    <%= link_to 'Finalizar', root_path(reset: true), class: 'btn btn-success' %>
+    <%= link_to 'Exportar - PDF', insurance_path(@insurance, format: 'pdf'), class: 'btn btn-primary', target: '_blank' %>
+    <%= link_to 'Finalizar', insurance_path(@insurance, reset: 'true'), class: 'btn btn-success' %>
   </div>
 </center>

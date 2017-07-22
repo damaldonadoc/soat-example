@@ -8,8 +8,17 @@ class InsurancesController < ApplicationController
   # GET /insurances/1
   # GET /insurances/1.json
   def show
-    session[:user_id] = nil
-    session[:vehicle_id] = nil
+    if params[:reset]
+      session[:user_id] = nil
+      session[:vehicle_id] = nil
+      redirect_to root_path
+    end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: 'soat', layout: 'layouts/pdf.html.erb'
+      end
+    end
   end
 
   # GET /insurances/new

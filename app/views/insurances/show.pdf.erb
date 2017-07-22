@@ -1,4 +1,5 @@
-<h3>Resumen de compra</h3>
+
+<h3>Resumen de compra - SOAT</h3>
 <br>
 
 <div class="panel panel-default">
@@ -6,23 +7,23 @@
   <table class="table table-striped">
     <tbody>
       <tr>
-	<td><strong>Registration number:</strong></td>
-	<td><%= @vehicle.registration_number %></td>
+	<td><strong>Placa</strong></td>
+	<td><%= @insurance.vehicle.registration_number %></td>
       </tr>
 
       <tr>
-	<td><strong>Vehicle class:</strong></td>
-	<td><%= @vehicle.vehicle_class.name %></td>
+	<td><strong>Clase</strong></td>
+	<td><%= @insurance.vehicle.vehicle_class.name %></td>
       </tr>
 
       <tr>
-	<td><strong>Sub type:</strong></td>
-	<td><%= @vehicle.sub_type.name %></td>
+	<td><strong>Subtipo</strong></td>
+	<td><%= @insurance.vehicle.sub_type.name %></td>
       </tr>
 
       <tr>
-	<td><strong>Release year:</strong></td>
-	<td><%= @vehicle.release_year %></td>
+	<td><strong>Modelo</strong></td>
+	<td><%= @insurance.vehicle.release_year %></td>
       </tr>
     </tbody>
   </table>
@@ -45,7 +46,7 @@
 	<td>$<%= number_with_delimiter(@insurance.runt_tax, delimiter: ".") %></td>
       </tr>
       <tr class="info">
-	<td><strong>TOTAL A PAGAR</strong></td>
+	<td><strong>TOTAL</strong></td>
 	<td><strong>$<%= number_with_delimiter(@insurance.total_value, delimiter: ".") %></strong></td>
       </tr>
     </tbody>
@@ -54,27 +55,24 @@
 
 <div class="panel panel-success">
   <div class="panel-heading"><strong>Coberturas</strong></div>
-  <table class="table table-striped">
-    <tbody>
-      <tr>
-	<td><strong>Muerte y gastos funerarios</strong></td>
-	<td>750 SMLDV</td>
-      </tr>
-      <tr>
-	<td><strong>Gastos médicos</strong></td>
-	<td>800 SMLDV</td>
-      </tr>
-      <tr>
-	<td><strong>Incapacidad permanente</strong></td>
-	<td>180 SMLDV</td>
-      </tr>
-      <tr>
-	<td><strong>Gastos de transporte</strong></td>
-	<td>10 SMLDV</td>
-      </tr>
-    </tbody>
-  </table>
+    <table class="table table-striped">
+      <tbody>
+	<tr>
+	  <td><strong>Muerte y gastos funerarios</strong></td>
+	  <td>750 SMLDV</td>
+	</tr>
+	<tr>
+	  <td><strong>Gastos médicos</strong></td>
+	  <td>800 SMLDV</td>
+	</tr>
+	<tr>
+	  <td><strong>Incapacidad permanente</strong></td>
+	  <td>180 SMLDV</td>
+	</tr>
+	<tr>
+	  <td><strong>Gastos de transporte</strong></td>
+	  <td>10 SMLDV</td>
+	</tr>
+      </tbody>
+    </table>
 </div>
-<center>
-  <%= link_to 'Comprar', new_user_path, class: 'btn btn-success' %>
-</center>
