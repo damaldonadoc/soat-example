@@ -5,10 +5,18 @@ class ApplicationController < ActionController::Base
   before_action :check_step
   before_action :set_cache_headers
 
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      username == ENV['ADMIN_USER'] && password == ENV['ADMIN_PASSWORD']
+    end
+  end
+
   private
 
   def check_step
-    return if request.xhr? || !request.get?
+    return if request.xhr? || !request.get? || request.path.include?('admin')
 
     # 1. if not vehicle selected and not in vehicles/new
     if session[:vehicle_id].nil? &&
