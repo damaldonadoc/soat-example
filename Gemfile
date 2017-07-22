@@ -57,9 +57,6 @@ gem 'premailer-rails'
 # ENV configuration params
 gem 'figaro'
 
-# use mailgun service to send emails
-gem 'mailgun_rails'
-
 # admin panel
 gem 'activeadmin', github: 'activeadmin'
 
