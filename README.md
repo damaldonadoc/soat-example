@@ -1,24 +1,52 @@
-# README
+# SOAT
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requerimientos
 
-Things you may want to cover:
+* Ruby 2.4.1
+* Rails 5.1.2
+* PostgreSQL 9.x
 
-* Ruby version
+##Instalación (ambiente local)
 
-* System dependencies
+Clonar el proyecto:
+```
+git clone  https://github.com/damaldonadoc/soat-example.git
+```
 
-* Configuration
+Crear la base de datos:
+```
+rails db:create
+```
 
-* Database creation
+Ejecutar migraciones:
+```
+rails db:migrate
+```
 
-* Database initialization
+Poblar base de datos:
+```
+rails db:seed
+```
 
-* How to run the test suite
+Configurar variables de entorno, editar archivo 'config/application.yml' de
+acuedo con el siguiente ejemplo:
+```
+development:
+  SMTP_SERVER: smtp.email.com
+  SMTP_LOGIN: su.email@email.com
+  SMTP_PASSWORD: password
+  SMTPMAILGUN_PORT: 25
+  ADMIN_USER: admin_user
+  ADMIN_PASSWORD: admin_password
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Ejecutar servidor:
+```
+rails server
+```
 
-* Deployment instructions
+##Admin
 
-* ...
+La aplicación dispone de un panel administrador en la ruta '/admin', las
+credenciales de autenticación deben ser establecidas en el archivo
+'config/application.yml'.
