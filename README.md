@@ -6,7 +6,7 @@
 * Rails 5.1.2
 * PostgreSQL 9.x
 
-##Instalación (ambiente local)
+## Instalación (ambiente local)
 
 Clonar el proyecto:
 ```
@@ -45,7 +45,7 @@ Ejecutar servidor:
 rails server
 ```
 
-##Admin
+## Admin
 
 La aplicación dispone de un panel administrador en la ruta '/admin', las
 credenciales de autenticación deben ser establecidas en el archivo
